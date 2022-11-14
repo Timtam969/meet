@@ -49,6 +49,6 @@ class Event extends Component {
       </div>
     );
   }
-}
+} dasdlkjas
 
 export default Event;
