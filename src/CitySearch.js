@@ -5,7 +5,8 @@ class CitySearch extends Component {
   state = {
     query: '',
     suggestions: [],
-    showSuggestions: undefined
+    showSuggestions: undefined,
+    infoText: ''
   }
 
   handleInputChanged = (event) => {
@@ -30,7 +31,8 @@ class CitySearch extends Component {
   handleItemClicked = (suggestion) => {
     this.setState({
       query: suggestion,
-      showSuggestions: false
+      showSuggestions: false,
+      infoText: '',
     });
 
     this.props.updateEvents(suggestion);
@@ -39,8 +41,11 @@ class CitySearch extends Component {
 
   render() {
     return (
+
+
       <div className='CitySearch'>
         <InfoAlert text={this.state.infoText} />
+        Search for your city:
         <input
           type="text"
           className="city"

@@ -12,7 +12,7 @@ class App extends Component {
     events: [],
     locations: [],
     locationSelected: 'all',
-    numberOfEvents: 32
+    numberOfEvents: 32,
   }
 
 
@@ -52,28 +52,17 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <h1>The Meet App</h1>
 
-        <div>
-          <h1>The Meet App</h1>
-        </div>
-        <div>
-          <h3 className='subtitle'>Search for your city and see upcoming events:</h3>
-        </ div>
         <div>
           <CitySearch locations={this.state.locations}
             updateEvents={this.updateEvents} />
-        </div>
-        <div>
-          <h3 className='subtitle'>Number of shown events</h3>
         </div>
         <div>
           <NumberOfEvents numberOfEvents={this.state.numberOfEvents}
             updateEvents={this.updateEvents} />
         </div>
         <div>
-          <div>
-            <h3 className='subtitle'>Events List</h3>
-          </div>
           <EventList events={this.state.events} />
         </div>
       </div>

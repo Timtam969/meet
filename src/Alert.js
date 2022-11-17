@@ -19,13 +19,20 @@ class Alert extends Component {
       </div>
     );
   }
-}
+};
 
 class InfoAlert extends Alert {
   constructor(props) {
     super(props);
     this.color = 'blue';
   }
+};
+
+class ErrorAlert extends Alert {
+  constructor(props) {
+    super(props);
+    this.color = 'red';
+  }
 }
 
-export { InfoAlert };
+export { InfoAlert, ErrorAlert };
