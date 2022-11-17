@@ -5,7 +5,7 @@ describe('show/hide an event details', () => {
   let page;
 
   beforeAll(async () => {
-    jest.setTimeout(900000);
+    // jest.setTimeout(90000);
     browser = await puppeteer.launch({
       headless: false,
       slowMo: 250, // slow down by 250ms
@@ -14,7 +14,7 @@ describe('show/hide an event details', () => {
     page = await browser.newPage();
     await page.goto('http://localhost:3000/');
     await page.waitForSelector('.event');
-  });
+  }, 90000);
 
   afterAll(() => {
     browser.close();
