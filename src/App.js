@@ -81,7 +81,7 @@ class App extends Component {
     if (this.state.showWelcomeScreen === undefined) return <div className="App" />;
     return (
       <div className="App">
-        <h1>The Meet App</h1>
+        <h1 className='header'>The Meet App</h1>
         <div>
           {!navigator.onLine && (
             <OfflineAlert
@@ -100,6 +100,7 @@ class App extends Component {
             updateEvents={this.updateEvents} />
         </div>
         <div>
+          <div className='header3'>Events</div>
           <EventList events={this.state.events} />
           <WelcomeScreen showWelcomeScreen={this.state.showWelcomeScreen} getAccessToken={() => { getAccessToken() }} />
         </div>
