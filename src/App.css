@@ -1,9 +1,10 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:500);
+@import url(https://db.onlinewebfonts.com/c/05289e866fe7e1e99d27a7a31f8d3b66?family=Trattatello);
 
 
 .App {
   text-align: center;
-  padding: 2% 5%;
+  padding: 1% 5%;
 
 }
 
@@ -20,13 +21,27 @@ p {
   margin: 5px 0;
 }
 
-.header,
+.header {
+  font-family: Trattatello;
+  font-weight: lighter;
+  font-size: 6rem;
+  margin: 0%;
+}
+
 .header2,
-.header3,
-.header4,
+.header4 {
+  font-family: Trattatello;
+  font-size: 1.5rem;
+}
+
+.header3 {
+  font-family: Trattatello;
+  font-size: 2rem;
+}
+
 .show-details,
 .hide-details {
-  font-family: fantasy;
+  font-family: Trattatello;
 }
 
 .display-none {
