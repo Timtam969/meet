@@ -95,10 +95,12 @@ class App extends Component {
           <CitySearch locations={this.state.locations}
             updateEvents={this.updateEvents} />
         </div>
+        <br />
         <div>
           <NumberOfEvents numberOfEvents={this.state.numberOfEvents}
             updateEvents={this.updateEvents} />
         </div>
+        <br />
         <div>
           <div className='header3'>Events</div>
           <EventList events={this.state.events} />

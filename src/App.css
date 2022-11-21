@@ -36,12 +36,26 @@ p {
 
 .header3 {
   font-family: Trattatello;
-  font-size: 2rem;
+  font-size: 3rem;
 }
 
 .show-details,
 .hide-details {
   font-family: Trattatello;
+}
+
+.input {
+  position: relative;
+  /* display: inline-block; */
+}
+
+.city {
+  width: 100%;
+}
+
+.suggestions {
+  right: 0;
+  width: 100%;
 }
 
 .display-none {
