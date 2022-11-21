@@ -87,7 +87,7 @@ class App extends Component {
             <OfflineAlert
               className='alert-centered'
               text=
-              'You are currently offline. The list of events may not be up-to-date.'
+              {'You are currently offline. The list of events may not be up-to-date.'}
             />
           )}
         </div>
