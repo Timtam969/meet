@@ -53,16 +53,16 @@ class App extends Component {
       });
     }
 
-    if (!navigator.onLine) {
-      this.setState({
-        offlineText:
-          "It seems that you're not connected to the internet, your data was loaded from the cache.",
-      });
-    } else {
-      this.setState({
-        offlineText: '',
-      });
-    }
+    // if (!navigator.onLine) {
+    //   this.setState({
+    //     offlineText:
+    //       "It seems that you're not connected to the internet, your data was loaded from the cache.",
+    //   });
+    // } else {
+    //   this.setState({
+    //     offlineText: '',
+    //   });
+    // }
   }
 
 
@@ -76,7 +76,15 @@ class App extends Component {
     return (
       <div className="App">
         <h1>The Meet App</h1>
-        <OfflineAlert text={this.state.offlineText} />
+        <div className="OfflineAlert">
+          {!navigator.onLine && (
+            <OfflineAlert
+              text={
+                'You are currently offline. The list of events may not be up-to-date.'
+              }
+            />
+          )}
+        </div>
         <div>
           <CitySearch locations={this.state.locations}
             updateEvents={this.updateEvents} />
