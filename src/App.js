@@ -82,12 +82,12 @@ class App extends Component {
     return (
       <div className="App">
         <h1>The Meet App</h1>
-        <div className="OfflineAlert">
+        <div>
           {!navigator.onLine && (
             <OfflineAlert
-              text={
-                'You are currently offline. The list of events may not be up-to-date.'
-              }
+              className='alert-centered'
+              text=
+              'You are currently offline. The list of events may not be up-to-date.'
             />
           )}
         </div>
