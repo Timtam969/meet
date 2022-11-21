@@ -39,7 +39,7 @@ class App extends Component {
   };
 
   async componentDidMount() {
-    tthis.mounted = true;
+    this.mounted = true;
     const isLocal =
       window.location.href.startsWith("http://127.0.0.1") ||
       window.location.href.startsWith("http://localhost");
