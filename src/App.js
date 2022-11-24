@@ -117,9 +117,10 @@ class App extends Component {
         <br />
         <div>
           <div className='header3'>Events</div>
+
           <ScatterChart
-            width={1000}
-            height={600}
+            width={1500}
+            height={500}
             margin={{
               top: 20, right: 20, bottom: 20, left: 20,
             }}
@@ -130,6 +131,7 @@ class App extends Component {
             <Tooltip cursor={{ strokeDasharray: '3 3' }} />
             <Scatter data={this.getData()} fill="#8884d8" />
           </ScatterChart>
+
           <EventList events={this.state.events} />
           <WelcomeScreen showWelcomeScreen={this.state.showWelcomeScreen} getAccessToken={() => { getAccessToken() }} />
         </div>
