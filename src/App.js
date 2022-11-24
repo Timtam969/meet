@@ -118,8 +118,8 @@ class App extends Component {
         <div>
           <div className='header3'>Events</div>
           <ScatterChart
-            width={400}
-            height={400}
+            width={1000}
+            height={600}
             margin={{
               top: 20, right: 20, bottom: 20, left: 20,
             }}
