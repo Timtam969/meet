@@ -3,14 +3,20 @@ import './App.css';
 import EventList from './EventList';
 import CitySearch from './CitySearch';
 import NumberOfEvents from './NumberOfEvents';
-// import { mockData } from './mock-data';
 import WelcomeScreen from './WelcomeScreen';
 import { getEvents, extractLocations, checkToken, getAccessToken } from
   './api';
 import './nprogress.css';
 import { OfflineAlert } from './Alert';
 import {
-  ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip
+  ScatterChart,
+  Scatter,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer,
+  Legend,
 } from 'recharts';
 
 
@@ -117,21 +123,20 @@ class App extends Component {
         <br />
         <div>
           <div className='header3'>Events</div>
-
-          <ScatterChart
-            width={1500}
-            height={500}
-            margin={{
-              top: 20, right: 20, bottom: 20, left: 20,
-            }}
-          >
-            <CartesianGrid />
-            <XAxis type="category" dataKey="city" name="City" />
-            <YAxis type="number" dataKey="number" name="Number of Events" allowDecimals={false} />
-            <Tooltip cursor={{ strokeDasharray: '3 3' }} />
-            <Scatter data={this.getData()} fill="#8884d8" />
-          </ScatterChart>
-
+          <ResponsiveContainer width={1000}>
+            <ScatterChart margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
+              <CartesianGrid />
+              <XAxis type="category" dataKey="city" name="city" />
+              <YAxis
+                allowDecimals={false}
+                type="number"
+                dataKey="number"
+                name="number of events"
+              />
+              <Tooltip cursor={{ strokeDasharray: "3 3" }} />
+              <Scatter data={this.getData()} fill="#8884d8" />
+            </ScatterChart>
+          </ResponsiveContainer>
           <EventList events={this.state.events} />
           <WelcomeScreen showWelcomeScreen={this.state.showWelcomeScreen} getAccessToken={() => { getAccessToken() }} />
         </div>
