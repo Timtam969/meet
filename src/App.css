@@ -1,5 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:500);
-@import url(https://db.onlinewebfonts.com/c/05289e866fe7e1e99d27a7a31f8d3b66?family=Trattatello);
+/* @import url(https://db.onlinewebfonts.com/c/05289e866fe7e1e99d27a7a31f8d3b66?family=Trattatello); */
 
 
 .App {
@@ -22,7 +22,7 @@ p {
 }
 
 .header {
-  font-family: Trattatello;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-weight: lighter;
   font-size: 6rem;
   margin: 0%;
@@ -30,18 +30,18 @@ p {
 
 .header2,
 .header4 {
-  font-family: Trattatello;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-size: 1.5rem;
 }
 
 .header3 {
-  font-family: Trattatello;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-size: 3rem;
 }
 
 .show-details,
 .hide-details {
-  font-family: Trattatello;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .input {
