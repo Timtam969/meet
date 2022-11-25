@@ -30,65 +30,65 @@ class App extends Component {
     showWelcomeScreen: undefined
   }
 
-  // async componentDidMount() {
-  //   this.mounted = true;
-  //   const isLocal =
-  //     window.location.href.startsWith("http://127.0.0.1") ||
-  //     window.location.href.startsWith("http://localhost");
-  //   if (navigator.onLine && !isLocal) {
-  //     const accessToken = localStorage.getItem("access_token");
-  //     const isTokenValid = (await checkToken(accessToken)).error ? false : true;
-  //     const searchParams = new URLSearchParams(window.location.search);
-  //     const code = searchParams.get("code");
-  //     this.setState({ showWelcomeScreen: !(code || isTokenValid) });
-  //     if ((code || isTokenValid) && this.mounted)
-  //       getEvents().then((events) => {
-  //         if (this.mounted) {
-  //           this.setState({
-  //             events: events.slice(0, this.state.numberOfEvents),
-  //             locations: extractLocations(events),
-  //           });
-  //         }
-  //       });
-  //   } else {
-  //     getEvents().then((events) => {
-  //       if (this.mounted) {
-  //         this.setState({
-  //           showWelcomeScreen: false,
-  //           events: events.slice(0, this.state.numberOfEvents),
-  //           locations: extractLocations(events),
-  //         });
-  //       }
-  //     });
-  //   }
-  // }
-
   async componentDidMount() {
     this.mounted = true;
-    const accessToken = localStorage.getItem('access_token');
-    const isTokenValid = (await checkToken(accessToken)).error ? false :
-      true;
-    const searchParams = new URLSearchParams(window.location.search);
-    const code = searchParams.get("code");
-    this.setState({ showWelcomeScreen: !(code || isTokenValid) });
-    if ((code || isTokenValid) && this.mounted) {
+    const isLocal =
+      window.location.href.startsWith("http://127.0.0.1") ||
+      window.location.href.startsWith("http://localhost");
+    if (navigator.onLine && !isLocal) {
+      const accessToken = localStorage.getItem("access_token");
+      const isTokenValid = (await checkToken(accessToken)).error ? false : true;
+      const searchParams = new URLSearchParams(window.location.search);
+      const code = searchParams.get("code");
+      this.setState({ showWelcomeScreen: !(code || isTokenValid) });
+      if ((code || isTokenValid) && this.mounted)
+        getEvents().then((events) => {
+          if (this.mounted) {
+            this.setState({
+              events: events.slice(0, this.state.numberOfEvents),
+              locations: extractLocations(events),
+            });
+          }
+        });
+    } else {
       getEvents().then((events) => {
         if (this.mounted) {
-          this.setState({ events, locations: extractLocations(events) });
+          this.setState({
+            showWelcomeScreen: false,
+            events: events.slice(0, this.state.numberOfEvents),
+            locations: extractLocations(events),
+          });
         }
       });
     }
-    if (!navigator.onLine) {
-      this.setState({
-        warningText:
-          "It looks like you're not connected to the internet. Data was loaded from the cache.",
-      });
-    } else {
-      this.setState({
-        warningText: '',
-      });
-    }
   }
+
+  // async componentDidMount() {
+  //   this.mounted = true;
+  //   const accessToken = localStorage.getItem('access_token');
+  //   const isTokenValid = (await checkToken(accessToken)).error ? false :
+  //     true;
+  //   const searchParams = new URLSearchParams(window.location.search);
+  //   const code = searchParams.get("code");
+  //   this.setState({ showWelcomeScreen: !(code || isTokenValid) });
+  //   if ((code || isTokenValid) && this.mounted) {
+  //     getEvents().then((events) => {
+  //       if (this.mounted) {
+  //         this.setState({ events, locations: extractLocations(events) });
+  //       }
+  //     });
+  //   }
+  //   if (!navigator.onLine) {
+  //     this.setState({
+  //       warningText:
+  //         "It looks like you're not connected to the internet. Data was loaded from the cache.",
+  //     });
+  //   } else {
+  //     this.setState({
+  //       warningText: '',
+  //     });
+  //   }
+  // }
 
 
   componentWillUnmount() {
@@ -153,7 +153,8 @@ class App extends Component {
           <div className='data-vis-wrapper'>
             <EventGenre events={this.state.events} />
             {/* <ResponsiveContainer width={1000}> */}
-            <ScatterChart margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
+            <ScatterChart width={800}
+              height={400} margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
               <CartesianGrid />
               <XAxis type="category" dataKey="city" name="city" />
               <YAxis

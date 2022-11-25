@@ -10,7 +10,7 @@ const EventGenre = ({ events }) => {
       const genres = ['React', 'JavaScript', 'Node', 'jQuery', 'AngularJS'];
       const data = genres.map((genre) => {
         const value = events.filter((event) =>
-          event.summary.split('').includes(genre)
+          event.summary.split(/[-!.,\s]/).includes(genre)
         ).length;
         return { name: genre, value };
       });
@@ -21,13 +21,13 @@ const EventGenre = ({ events }) => {
 
   return (
     // <ResponsiveContainer height={350}>
-    <PieChart width={400} height={400}>
+    <PieChart width={600} height={250}>
       <Pie
         data={data}
         cx='50%'
         cy='50%'
         labelLine={false}
-        outerRadius={70}
+        outerRadius={80}
         fill="#8884d8"
         dataKey="value"
         label={({ name, percent }) =>
