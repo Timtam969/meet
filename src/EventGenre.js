@@ -21,17 +21,17 @@ const EventGenre = ({ events }) => {
 
   return (
     // <ResponsiveContainer height={350}>
-    <PieChart width={600} height={250}>
+    <PieChart width={600} height={350}>
       <Pie
         data={data}
         cx='50%'
         cy='50%'
         labelLine={false}
-        outerRadius={80}
+        outerRadius={100}
         fill="#8884d8"
-        dataKey="value"
-        label={({ name, percent }) =>
-          `${name} ${(percent * 100).toFixed(0)}%`
+        // dataKey="value"
+        label={({ percent }) =>
+          ` ${(percent * 100).toFixed(0)}%`
         }
       >
         {data.map((entry, index) => (
