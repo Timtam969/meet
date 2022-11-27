@@ -20,27 +20,27 @@ const EventGenre = ({ events }) => {
   }, [events]);
 
   return (
-    // <ResponsiveContainer height={350}>
-    <PieChart width={600} height={350}>
-      <Pie
-        data={data}
-        cx='50%'
-        cy='50%'
-        labelLine={false}
-        outerRadius={100}
-        fill="#8884d8"
-        // dataKey="value"
-        label={({ percent }) =>
-          ` ${(percent * 100).toFixed(0)}%`
-        }
-      >
-        {data.map((entry, index) => (
-          <Cell key={`cell-${index}`} fill={colors[index]} />
-        ))}
-      </Pie>
-      <Legend verticalAlign="bottom" height={36} />
-    </PieChart>
-    // </ResponsiveContainer>
+    <ResponsiveContainer height={350}>
+      <PieChart width={600} height={350}>
+        <Pie
+          data={data}
+          cx='50%'
+          cy='50%'
+          labelLine={false}
+          outerRadius={100}
+          fill="#8884d8"
+          // dataKey="value"
+          label={({ percent }) =>
+            ` ${(percent * 100).toFixed(0)}%`
+          }
+        >
+          {data.map((entry, index) => (
+            <Cell key={`cell-${index}`} fill={colors[index]} />
+          ))}
+        </Pie>
+        <Legend verticalAlign="bottom" height={36} />
+      </PieChart>
+    </ResponsiveContainer>
   );
 };
 

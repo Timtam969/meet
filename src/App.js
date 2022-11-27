@@ -152,21 +152,21 @@ class App extends Component {
           <div className='header3'>Events</div>
           <div className='data-vis-wrapper'>
             <EventGenre events={this.state.events} />
-            {/* <ResponsiveContainer width={1000}> */}
-            <ScatterChart width={800}
-              height={400} margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
-              <CartesianGrid />
-              <XAxis type="category" dataKey="city" name="city" />
-              <YAxis
-                allowDecimals={false}
-                type="number"
-                dataKey="number"
-                name="number of events"
-              />
-              <Tooltip cursor={{ strokeDasharray: "3 3" }} />
-              <Scatter data={this.getData()} fill="#8884d8" />
-            </ScatterChart>
-            {/* </ResponsiveContainer> */}
+            <ResponsiveContainer height={350}>
+              <ScatterChart width={600}
+                height={350} margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
+                <CartesianGrid />
+                <XAxis type="category" dataKey="city" name="city" />
+                <YAxis
+                  allowDecimals={false}
+                  type="number"
+                  dataKey="number"
+                  name="number of events"
+                />
+                <Tooltip cursor={{ strokeDasharray: "3 3" }} />
+                <Scatter data={this.getData()} fill="#8884d8" />
+              </ScatterChart>
+            </ResponsiveContainer>
           </div>
           <EventList events={this.state.events} />
           <WelcomeScreen showWelcomeScreen={this.state.showWelcomeScreen} getAccessToken={() => { getAccessToken() }} />
