@@ -15,8 +15,7 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  ResponsiveContainer,
-  Legend,
+  ResponsiveContainer
 } from 'recharts';
 import EventGenre from './EventGenre';
 
@@ -63,34 +62,6 @@ class App extends Component {
     }
   }
 
-  // async componentDidMount() {
-  //   this.mounted = true;
-  //   const accessToken = localStorage.getItem('access_token');
-  //   const isTokenValid = (await checkToken(accessToken)).error ? false :
-  //     true;
-  //   const searchParams = new URLSearchParams(window.location.search);
-  //   const code = searchParams.get("code");
-  //   this.setState({ showWelcomeScreen: !(code || isTokenValid) });
-  //   if ((code || isTokenValid) && this.mounted) {
-  //     getEvents().then((events) => {
-  //       if (this.mounted) {
-  //         this.setState({ events, locations: extractLocations(events) });
-  //       }
-  //     });
-  //   }
-  //   if (!navigator.onLine) {
-  //     this.setState({
-  //       warningText:
-  //         "It looks like you're not connected to the internet. Data was loaded from the cache.",
-  //     });
-  //   } else {
-  //     this.setState({
-  //       warningText: '',
-  //     });
-  //   }
-  // }
-
-
   componentWillUnmount() {
     this.mounted = false;
   }
@@ -128,7 +99,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1 className='header'>The Meet App</h1>
-        {/* <div>
+        <div>
           {!navigator.onLine && (
             <OfflineAlert
               className='alert-centered'
@@ -136,7 +107,7 @@ class App extends Component {
               {'You are currently offline. The list of events may not be up-to-date.'}
             />
           )}
-        </div> */}
+        </div>
         <OfflineAlert text={this.state.warningText} />
         <div>
           <CitySearch locations={this.state.locations}
