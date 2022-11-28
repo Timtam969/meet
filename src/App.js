@@ -27,6 +27,7 @@ class App extends Component {
     locations: [],
     locationSelected: 'all',
     numberOfEvents: 32,
+    warningText: '',
     showWelcomeScreen: undefined
   }
 
@@ -41,27 +42,42 @@ class App extends Component {
     const searchParams = new URLSearchParams(window.location.search);
     const code = searchParams.get("code");
     this.setState({ showWelcomeScreen: !(code || isTokenValid) });
-    if ((code || isTokenValid) && this.mounted)
+    if ((code || isTokenValid) && this.mounted) {
       getEvents().then((events) => {
         if (this.mounted) {
-          this.setState({
-            events: events.slice(0, this.state.numberOfEvents),
-            locations: extractLocations(events),
-          });
+          this.setState({ events, locations: extractLocations(events) });
+          // this.setState({
+          //   events: events.slice(0, this.state.numberOfEvents),
+          //   locations: extractLocations(events)
+          // });
         }
       });
-    //   } else {
-    //     getEvents().then((events) => {
-    //       if (this.mounted) {
-    //         this.setState({
-    //           showWelcomeScreen: false,
-    //           events: events.slice(0, this.state.numberOfEvents),
-    //           locations: extractLocations(events),
-    //         });
-    //       }
-    //     });
-    //   }
+    }
+    if (!navigator.onLine) {
+      this.setState({
+        warningText:
+          "It looks like you're not connected to the internet. Data was loaded from the cache.",
+      });
+    } else {
+      this.setState({
+        warningText: '',
+      });
+    }
   }
+  //   } else {
+  //     getEvents().then((events) => {
+  //       if (this.mounted) {
+  //         this.setState({
+  //           showWelcomeScreen: false,
+  //           events: events.slice(0, this.state.numberOfEvents),
+  //           locations: extractLocations(events),
+  //         });
+  //       }
+  //     });
+  //   }
+
+
+
 
   componentWillUnmount() {
     this.mounted = false;
@@ -100,7 +116,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1 className='header'>The Meet App</h1>
-        <div>
+        {/* <div>
           {!navigator.onLine && (
             <OfflineAlert
               className='alert-centered'
@@ -108,7 +124,7 @@ class App extends Component {
               {'You are currently offline. The list of events may not be up-to-date.'}
             />
           )}
-        </div>
+        </div> */}
         <OfflineAlert text={this.state.warningText} />
         <div>
           <CitySearch locations={this.state.locations}
